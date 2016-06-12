@@ -94,7 +94,7 @@ public class ModelService extends AbstractMap<String, Object> implements Seriali
     public static final String module = ModelService.class.getName();
 
     public static final String XSD = "http://www.w3.org/2001/XMLSchema";
-    public static final String TNS = "http://noerp.apache.org/service/";
+    public static final String TNS = "http://noerp.org/service/";
     public static final String OUT_PARAM = "OUT";
     public static final String IN_PARAM = "IN";
 
@@ -954,7 +954,7 @@ public class ModelService extends AbstractMap<String, Object> implements Seriali
     /**
      * Evaluates permission-service for this service.
      * @param dctx DispatchContext from the invoked service
-     * @param context Map containing userLogin and context infromation
+     * @param context Map containing userLogin and context information
      * @return result of permission service invocation
      */
     public Map<String, Object> evalPermission(DispatchContext dctx, Map<String, ? extends Object> context) {
@@ -985,7 +985,7 @@ public class ModelService extends AbstractMap<String, Object> implements Seriali
                 LocalDispatcher dispatcher = dctx.getDispatcher();
                 Map<String, Object> resp;
                 try {
-                    resp = dispatcher.runSync(permission.name,  ctx, 300, true);
+                    resp = dispatcher.runSync(permission.name, ctx, 300, true);
                 } catch (GenericServiceException e) {
                     Debug.logError(e, module);
                     Map<String, Object> result = ServiceUtil.returnSuccess();
@@ -1030,7 +1030,7 @@ public class ModelService extends AbstractMap<String, Object> implements Seriali
     /**
      * Evaluates permissions for a service.
      * @param dctx DispatchContext from the invoked service
-     * @param context Map containing userLogin infromation
+     * @param context Map containing userLogin information
      * @return true if all permissions evaluate true.
      */
     public boolean evalPermissions(DispatchContext dctx, Map<String, ? extends Object> context) {
@@ -1041,10 +1041,8 @@ public class ModelService extends AbstractMap<String, Object> implements Seriali
                     return false;
                 }
             }
-            return true;
-        } else {
-            return true;
         }
+        return true;
     }
 
     /**
